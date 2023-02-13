@@ -1,0 +1,59 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Odalar</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Oda Numarası</th>
+                                <th>Miktar/Porsiyon</th>
+                                <th>Fiyat</th>
+                                <th>Açıklama</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                if (Model.Count > 0)
+                                {
+                                    foreach (var product in Model)
+                                    {
+                                        <tr>
+                                            <td>@product.Id</td>
+                                            <td>@product.ProductName</td>
+                                            @if(product.portion == null)
+                                            {
+                                                <td>@product.amount</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@product.portion</td>
+                                            }
+                                            <td>@product.UnitPrice</td>
+                                            <td>@product.Description</td>
+                                        </tr>
+                                    }
+                                }
+
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</div>

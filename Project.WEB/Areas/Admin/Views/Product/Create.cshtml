@@ -1,0 +1,53 @@
+﻿@using Project.Entity.Enum;
+@model Product
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Ürün Oluşturma Ekranı</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Ürün Adı</label>
+                        <input asp-for="ProductName" type="text" class="form-control" placeholder="Ürün Adı">
+                    </div>
+                    <div class="form-group">
+                        <label>Fiyat</label>
+                        <input asp-for="UnitPrice" type="number" class="form-control" placeholder="Ürün Fiyatı">
+                    </div>
+                    <div class="form-group">
+                        <label>Porsiyon</label>
+                        <select asp-for="portion" asp-items="Html.GetEnumSelectList<Portion>()" class="form-control">
+                            <option selected="selected" value="">Porsiyon Seçiniz</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Miktar</label>
+                        <select asp-for="amount" asp-items="Html.GetEnumSelectList<Amount>()" class="form-control">
+                            <option selected="selected" value="">Miktar Seçiniz</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ürün Açıklaması</label>
+                        <input asp-for="Description" type="text" class="form-control" placeholder="Açıklama">
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Ürün Oluştur</button>
+                    </div>
+            </form>
+        </div>
+        <!-- /.card -->
+
+    </div>
+</div>
+
+

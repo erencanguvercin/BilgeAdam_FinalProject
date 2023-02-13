@@ -1,0 +1,49 @@
+﻿@using Project.Entity.Enum;
+@using Project.WEB.Areas.Admin.Models;
+@model OrderDetailVM
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Yeni Giriş</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Oda</label>
+                        <select asp-for="OrderId" asp-items="Html.ViewBag.Orders" class="form-control">
+                            <option selected="selected" value="">Oda Seçiniz</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ürün</label>
+                        <select asp-for="ProductId" asp-items="Html.ViewBag.Products" class="form-control">
+                            <option selected="selected" value="">Ürün Seçiniz</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Miktar</label>
+                        <input asp-for="Quantity" type="number" class="form-control" placeholder="Miktar Giriniz">
+                    </div>
+                </div>
+
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+
+    </div>
+</div>

@@ -1,0 +1,85 @@
+﻿@model List<Room>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Odalar</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Oda Numarası</th>
+                                <th>Kat</th>
+                                <th>Kapasite</th>
+                                <th>Yatak Tipi</th>
+                                <th>Dolu/Boş</th>>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                if (Model.Count > 0)
+                                {
+                                    foreach (var room in Model)
+                                    {
+                                        <tr>
+                                            <td>@room.Id</td>
+                                            <td>@room.RoomNumber</td>
+                                            <td>@room.Floor</td>
+                                            <td>@room.UserQuantity</td>
+                                            @{if(room.BedType == Project.Entity.Enum.BedType.Single)
+                                            {
+                                                    <td>Tek Kişilik</td>
+                                                }
+                                                else if(room.BedType == Project.Entity.Enum.BedType.TwoNDouble)
+                                                {
+                                                    <td>Çift Kişilik</td>
+                                                }
+                                                else if(room.BedType == Project.Entity.Enum.BedType.TwoNTwoSingle)
+                                                {
+                                                    <td>2 Tek Kişilik</td>
+                                                }
+                                                else if(room.BedType == Project.Entity.Enum.BedType.ThreeNSingleDouble)
+                                                {
+                                                    <td>1 Tek 1 Çift Kişilik</td>
+                                                }
+                                                else if (room.BedType == Project.Entity.Enum.BedType.ThreeNThreeSingle)
+                                                {
+                                                    <td>3 Tek Kişilik</td>
+                                                }
+                                                else if (room.BedType == Project.Entity.Enum.BedType.FourNTwoSingleOneDouble)
+                                                {
+                                                    <td>2 Tek 1 Çift Kişilik</td>
+                                                }
+                                            }
+                                            @if(room.EmptyOrNot == false)
+                                            {
+                                                <td>Boş</td>
+                                            }
+                                            else
+                                            {
+                                                <td>Dolu</td>
+                                            }
+                                        </tr>
+                                    }
+                                }
+
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+    </div>

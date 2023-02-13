@@ -1,0 +1,44 @@
+﻿@using Project.Entity.Enum;
+@using Project.WEB.Areas.Admin.Models;
+@model SalaryVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Maaş Hesaplama Sistemi</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Çalışan</label>
+                        <select asp-for="EmployeeId" asp-items="Html.ViewBag.Employees" class="form-control">
+                            <option selected="selected">Çalışan Seçiniz</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Günlük Çalışma Saati</label>
+                        <input asp-for="WorkHour" type="number" class="form-control" placeholder="Çalıştığı Saat">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Hesaplat</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+
+    </div>
+</div>
+
+
+

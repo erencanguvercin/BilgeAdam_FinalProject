@@ -1,0 +1,72 @@
+﻿@using Project.WEB.Models.ViewModels;
+@model RegisterVM;
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="col-md-6 mx-auto p-2">
+        <div class="card">
+            <div class="card-header">
+                <h3>Kayıt Ol</h3>
+                @{
+                    if (TempData["result"] != null)
+                    {
+                        <div class="alert alert-success">
+                            @TempData["result"]
+                        </div>
+                    }
+                    if(TempData["warning"] != null)
+                    {
+                        <div class="alert alert-danger">
+                            @TempData["result"]
+                        </div>
+                    }
+
+                }
+            </>
+            <div class="card-body">
+                <form method="post">
+                    <div class="mt-2">
+                        <label>Adınız</label>
+                        <span asp-validation-for="FirstName"></span>
+                        <input type="text" placeholder="adınızı giriniz" class="form-control" asp-for="FirstName" />
+                    </div>
+                    <div class="mt-2">
+                        <label>Soyadınız</label>
+                        <span asp-validation-for="LastName"></span>
+                        <input type="text" placeholder="soyadınızı giriniz" class="form-control" asp-for="LastName" />
+                    </div>
+                    <div class="mt-2">
+                        <label>Doğum Tarihi</label>
+                        <span asp-validation-for="BirthDate"></span>
+                        <input type="date" placeholder="doğum tarihinizi giriniz" class="form-control" asp-for="BirthDate" />
+                    </div>
+                    <div class="mt-2">
+                        <label>Kullanıcı Adı</label>
+                        <span asp-validation-for="Username"></span>
+                        <input type="text" placeholder="enter username" class="form-control" asp-for="Username" />
+                    </div>
+                    <div class="mt-2">
+                        <label>Email</label>
+                        <span asp-validation-for="Email"></span>
+                        <input type="email" placeholder="email giriniz" class="form-control" asp-for="Email" />
+                    </div>
+                    <div class="mt-2">
+                        <label>Şifre</label>
+                        <span asp-validation-for="Password"></span>
+                        <input type="password" placeholder="şifre giriniz" class="form-control" asp-for="Password" />
+                    </div>
+                    <div class="mt-2">
+                        <label>Şifre Doğrulama</label>
+                        <span asp-validation-for="ConfirmPassword"></span>
+                        <input type="password" placeholder="şifre doğrulamasını giriniz" class="form-control" asp-for="ConfirmPassword" />
+                    </div>
+                    <div class="mt-2">
+                        <button type="submit" class="btn btn-primary ml-auto">Kayıt Ol</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

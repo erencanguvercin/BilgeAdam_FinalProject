@@ -1,0 +1,49 @@
+﻿@model RentUser
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Müşteri Bilgileri</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Adı</label>
+                        <input asp-for="FirstName" type="text" class="form-control" placeholder="Ad">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Soyadı</label>
+                        <input asp-for="LastName" type="text" class="form-control" placeholder="Soyad">
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon Numarası</label>
+                        <input asp-for="PhoneNumber" type="text" class="form-control" placeholder="Telefon Numarası">
+                    </div>
+                    <div class="form-group">
+                        <label>Kimlik Numarası</label>
+                        <input asp-for="IdentificationNumber" type="text" class="form-control" placeholder="Kimlik Numarası">
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <input asp-for="Address" type="text" class="form-control" placeholder="Adres">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Müşteri Oluştur</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+
+    </div>
+</div>
+

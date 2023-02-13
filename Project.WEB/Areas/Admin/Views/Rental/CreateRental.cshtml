@@ -1,0 +1,59 @@
+﻿@using Project.Entity.Models;
+@using Project.Entity.Enum;
+@model Rental
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Yeni Giriş</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Giriş</label>
+                        <input asp-for="StartDate" type="date" class="form-control" placeholder="Enter category name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Çıkış</label>
+                        <input asp-for="EndDate" type="date" class="form-control" placeholder="Enter category name">
+                    </div>
+                    <div class="form-group">
+                        <label>Paket</label>
+                        <select asp-for="package" asp-items="Html.GetEnumSelectList<Package>()" class="form-control">
+                            <option selected="selected" value="">Paket Seçiniz</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Oda</label>
+                        <select asp-for="RoomId1" asp-items="@Html.ViewBag.Rooms" class="form-control">
+                            <option selected="selected">Oda Seçiniz</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Reservasyon</label>
+                        <select asp-for="ReservationId"  asp-items="@Html.ViewBag.Reservations" class="form-control">
+                            <option selected="selected">Reservasyon Seçiniz</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+
+    </div>
+</div>

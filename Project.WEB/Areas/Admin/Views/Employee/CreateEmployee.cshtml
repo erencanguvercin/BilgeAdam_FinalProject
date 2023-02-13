@@ -1,0 +1,60 @@
+﻿@using Project.Entity.Enum;
+@model Employee
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <!-- general form elements -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Çalışan Bilgileri</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form method="post">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Adı</label>
+                        <input asp-for="FirstName" type="text" class="form-control" placeholder="Ad">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Soyadı</label>
+                        <input asp-for="LastName" type="text" class="form-control" placeholder="Soyad">
+                    </div>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <input asp-for="Address" type="text" class="form-control" placeholder="Adres">
+                    </div>
+                    <div class="form-group">
+                        <label>Departman</label>
+                        <select asp-for="Department" asp-items="Html.GetEnumSelectList<Department>()" class="form-control">
+                            <option selected="selected" value="">Departman Seçiniz</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Saatlik Ücret</label>
+                        <input asp-for="SalaryPerHour" type="number" class="form-control" placeholder="Saatlik Ücret">
+                    </div>
+                    <div class="form-group">
+                        <label>Departman</label>
+                        <select asp-for="Shift" asp-items="Html.GetEnumSelectList<Shift>()" class="form-control">
+                            <option selected="selected" value="">Vardiya Seçiniz</option>
+                        </select>
+                    </div>
+                    
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Çalışan Oluştur</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.card -->
+
+    </div>
+</div>
+
+

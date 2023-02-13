@@ -1,0 +1,61 @@
+﻿@using Project.Entity.Models;
+@using Microsoft.AspNetCore.Identity;
+@using Project.BLL.Services;
+@inject IRoomService roomservice;
+@inject UserManager<AppUser> usermanager;
+@model List<Reservation>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Müşteriler</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Oda</th>
+                                <th>Kişi Sayısı</th>
+                                <th>Kullanıcı</th>
+                                <th>Oluşturma T.</th>
+                                <th>Başlangıç T.</th>
+                                <th>Bitiş T.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                if (Model.Count > 0)
+                                {
+                                    foreach (var reservation in Model)
+                                    {
+                                        <tr>
+                                            <td>@reservation.Id</td>
+                                            <td>@roomservice.GetRoom(reservation.RoomId).RoomNumber</td>
+                                            <td>@reservation.UserQuantity.ToString()</td>
+                                            <td>@reservation.ReservationOwnerId</td>
+                                            <td>@reservation.ReservationDate</td>
+                                            <td>@reservation.StartDate</td>
+                                            <td>@reservation.EndDate</td>
+                                        </tr>
+                                    }
+                                }
+
+
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</div>
